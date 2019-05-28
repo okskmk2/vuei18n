@@ -1,0 +1,14 @@
+body{
+    margin: 0;
+}
+
+header{
+    border-bottom:1px solid #ddd;
+}
+
+nav{
+    display: flex;
+    &>a{
+        padding:1rem;
+    }
+}
