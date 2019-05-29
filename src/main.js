@@ -1,20 +1,9 @@
 import Vue from 'vue'
-import App from './App.vue'
+import App from './views/App.vue'
 import router from './router'
 import store from './store'
-import VueI18n from 'vue-i18n'
+import i18n from './i18n'
 import './assets/base.scss';
-
-Vue.use(VueI18n);
-
-const i18n = new VueI18n({
-  locale: 'en',
-  messages:{
-    en:{
-    }
-  },
-})
-
 
 Vue.config.productionTip = false
 

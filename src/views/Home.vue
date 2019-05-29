@@ -1,18 +1,31 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <h1>{{$t('welcome')}}</h1>
   </div>
 </template>
 
+<i18n>
+ko:
+  welcome: 안녕하세요
+en:
+  welcome: Welcome
+</i18n>
+
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
+import { mapState } from "vuex";
 
 export default {
-  name: 'home',
-  components: {
-    HelloWorld
+  name: "home",
+  computed: {
+    ...mapState(["locale"])
+  },
+  watch: {
+    locale: function(newLocale) {
+      this.$i18n.locale = newLocale;
+    }
+  },
+  mounted() {
+    this.$i18n.locale = this.locale;
   }
-}
+};
 </script>

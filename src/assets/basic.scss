@@ -1,14 +1,28 @@
-body{
+body {
     margin: 0;
 }
 
-header{
-    border-bottom:1px solid #ddd;
+header {
+    border-bottom: 1px solid #ddd;
+    &>.container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
 }
 
-nav{
+nav {
     display: flex;
-    &>a{
-        padding:1rem;
+    &>a {
+        padding: 1rem;
     }
+}
+
+footer{
+    background-color: #f1f1f1;
+}
+
+
+button{
+    white-space: nowrap;
 }
