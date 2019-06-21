@@ -9,6 +9,10 @@ ko:
   welcome: 안녕하세요
 en:
   welcome: Welcome
+zh:
+  welcome: 你好
+ja:
+  welcome: こんにちは
 </i18n>
 
 <script>
