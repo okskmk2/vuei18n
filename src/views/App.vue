@@ -11,48 +11,38 @@
     <header>
       <div class="container">
         <div class="brand">Brand</div>
-        <nav class="main-nav">
-          <router-link to="/">
-            <span>home</span>
-          </router-link>
-          <router-link to="/about">
-            <span>about</span>
-          </router-link>
-        </nav>
+        <GlobalMenu></GlobalMenu>
         <nav class="user-nav">
-          <select v-model="locale">
-            <option v-for="lang in support_langs" :key="lang">{{lang}}</option>
-          </select>
-          <button @click="openModal('login')">로그인</button>
-          <button @click="openModal('join')">회원가입</button>
+          <I18nComobo></I18nComobo>
+          <button @click="openModal('login')">{{$t('login')}}</button>
+          <button @click="openModal('join')">{{$t('join')}}</button>
         </nav>
       </div>
     </header>
-    <router-view class="container"/>
+    <router-view class="container" />
     <footer>
       <div class="container">footer</div>
     </footer>
   </div>
 </template>
-
+<i18n>
+  en: 
+    login: Login
+    join: Join
+  ko: 
+    login: 로그인
+    join: 회원가입
+</i18n>
 <script>
+import I18nComobo from "../components/i18n-combo";
+import GlobalMenu from "../components/GlobalMenu";
+
 export default {
   name: "app",
   data() {
     return {
-      support_langs: ["ko", "en", "ja", "zh"],
       modalOpen: false
     };
-  },
-  computed: {
-    locale: {
-      set(value) {
-        this.$store.commit("setLocale", value);
-      },
-      get() {
-        return this.$store.state.locale;
-      }
-    }
   },
   methods: {
     openModal(name) {
@@ -63,6 +53,10 @@ export default {
       this.modalOpen = false;
       this.$refs.wrap.classList.remove("bg");
     }
+  },
+  components: {
+    I18nComobo,
+    GlobalMenu
   }
 };
 </script>

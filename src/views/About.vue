@@ -15,21 +15,3 @@
   </div>
 </template>
 
-<script>
-import { mapState } from "vuex";
-
-export default {
-  name: "about",
-  computed: {
-    ...mapState(["locale"])
-  },
-  watch: {
-    locale: function(newLocale) {
-      this.$i18n.locale = newLocale;
-    }
-  },
-  mounted() {
-    this.$i18n.locale = this.locale;
-  }
-};
-</script>
